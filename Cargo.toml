@@ -1,0 +1,34 @@
+[package]
+name = "prism-ct-service"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+prism-prover = { path = "../../prism/crates/node_types/prover", features = [
+    "mock_prover",
+] }
+prism-common = { path = "../../prism/crates/common" }
+prism-storage = { path = "../../prism/crates/storage" }
+prism-da = { path = "../../prism/crates/da" }
+keystore-rs = "0.1.2"
+tokio = { version = "1.16.1", features = ["full"] }
+ctclient = { path = "../ctclient" }
+reqwest = { version = "0.10.4", default-features = false, features = [
+    "blocking",
+    "native-tls",
+    "gzip",
+    "json",
+] }
+serde = { version = "1.0.97", features = ["derive"] }
+serde_json = "1.0.40"
+serde_urlencoded = "0.6.1"
+base64 = "0.13"
+openssl = "0.10.24"
+foreign-types = "0.3.2"
+openssl-sys = "0.9.72"
+log = "0.4.7"
+chrono = "0.4"
+pretty_env_logger = "0.5.0"
+
+[build-dependencies]
+openssl-sys = "0.9.72"
