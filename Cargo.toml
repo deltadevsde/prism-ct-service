@@ -4,35 +4,37 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-prism-prover = { path = "../../prism/crates/node_types/prover", features = [
+prism-prover = { path = "../prism/crates/node_types/prover", features = [
     "mock_prover",
 ] }
-prism-common = { path = "../../prism/crates/common" }
-prism-storage = { path = "../../prism/crates/storage" }
-prism-da = { path = "../../prism/crates/da" }
-keystore-rs = "0.1.2"
+prism-common = { path = "../prism/crates/common" }
+prism-keys = { path = "../prism/crates/keys" }
+prism-storage = { path = "../prism/crates/storage" }
+prism-da = { path = "../prism/crates/da" }
+keystore-rs = { version = "0.3" }
 tokio = { version = "1.16.1", features = ["full"] }
 ctclient = { path = "../ctclient" }
-reqwest = { version = "0.10.4", default-features = false, features = [
+reqwest = { version = "0.12.9", default-features = false, features = [
     "blocking",
     "native-tls",
     "gzip",
     "json",
 ] }
 serde = { version = "1.0.97", features = ["derive"] }
+serde_with = { version = "3.11.0", features = ["base64"] }
 serde_json = "1.0.40"
 serde_urlencoded = "0.6.1"
 base64 = "0.21.0"
 openssl = "0.10.24"
 foreign-types = "0.3.2"
 openssl-sys = "0.9.72"
-p256 = { version = "0.13.2", features = ["ecdsa", "serde"] }
 log = "0.4.7"
-chrono = "0.4"
+chrono = { version = "0.4", features = ["serde"] }
 pretty_env_logger = "0.5.0"
 elliptic-curve = { version = "0.13.8", features = ["pem", "serde"] }
 der = "0.7.9"
 ecdsa = { version = "0.16.9", features = ["der"] }
+anyhow = "1.0.95"
 
 [build-dependencies]
 openssl-sys = "0.9.72"
